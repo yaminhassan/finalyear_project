@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row" style="height:100%; background-image:url(/static/images/profile_background.gif);  background-size: cover;background-repeat: no-repeat;border-style:inset"  >
+    <div class="col" style="margin-top:50px; margin-left:50px" height="100%" width="100%">
+        <img  src="{{result['image']}}" alt="/static/images/images.jpg" width="50%" height="auto" style="border-radius:5px; margin-left:25px border: 2px solid black;outline-style: outset; outline-color: grey">
+    </div>
+    <div class="col" style="margin-top:40px; margin-right:350px"><li style="list-style-type:none; margin-top:5px">
+        <h5 style="color:white; font-family:Bookman, URW Bookman L, serif">ID:{{result['id']}}</h5></li>
+        <h5 style="color:white; font-family:Bookman, URW Bookman L, serif">Name:{{result['fullname']}}</h5></li>
+        <h5 style="color:white; font-family:Bookman, URW Bookman L, serif">Email:{{result['email']}}</h5></li>
+
+    </div>
+
+
+</div>
+{% endblock %}
+

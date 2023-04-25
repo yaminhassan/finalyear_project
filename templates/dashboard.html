@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-12 mt-0"  id="heat">
+
+            <script>
+                var graphs = {{correlation | safe}};
+                Plotly.plot('heat',graphs,{});
+            </script>
+    </div>
+</div>
+<div class="row">
+
+        <div class="col-3 mt-0"  id="plot">
+
+            <script>
+                var graphs = {{pie | safe}};
+                Plotly.plot('plot',graphs,{});
+            </script>
+        </div>
+
+        <div class="col-9 mt-0"  id="plots">
+
+            <script>
+                var graphs = {{heat | safe}};
+                Plotly.plot('plots',graphs,{});
+            </script>
+        </div>
+
+
+</div>
+<div class="row">
+
+        <div class="col-6 mt-0"  id="bar">
+
+            <script>
+                var graphs = {{barchart | safe}};
+                Plotly.plot('bar',graphs,{});
+            </script>
+        </div>
+
+
+    <div class="col-6 mt-0"  id="bar2">
+
+            <script>
+                var graphs = {{scatter | safe}};
+                Plotly.plot('bar2',graphs,{});
+            </script>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

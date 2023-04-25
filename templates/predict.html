@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row">
+    <div class="col text-center">
+        <h3>Predict car price</h3>
+    </div>
+</div>
+
+<form method="POST" action="/predict">
+
+    <div class="row my-2">
+        <div class="col-sm-4">
+            <label class="valuation-box-label">Make</label>
+            <select name="make" class="form-control">
+                {% for x in make_ %}
+                <option>{{x}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label class="valuation-box-label">Engine</label>
+            <input class="form-control valuation-box-input valuation-box-input--mileage" type="number" name="engine" id="engine" placeholder="Engine" data-validate="input" data-validate-message="Engine" value="">
+        </div>
+
+        <div class="col-sm-4">
+            <label class="valuation-box-label">Transmission</label>
+            <select name="transmission" class="form-control">
+                {% for x in transmission_ %}
+                <option>{{x}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row my-2">
+        <div class="col-sm-4">
+            <label class="valuation-box-label">Fuel</label>
+            <select name="fuel" class="form-control">
+                {% for x in fuel_ %}
+                <option>{{x}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label class="valuation-box-label">Age</label>
+            <input class="form-control valuation-box-input valuation-box-input--mileage" type="number" name="age" id="age" placeholder="Age" data-validate="input" data-validate-message="Please enter your vehicle age" value="" min="1" max="50">
+        </div>
+
+        <div class="col-sm-4">
+            <label class="valuation-box-label">Enter mileage</label>
+            <input class="form-control valuation-box-input valuation-box-input--mileage" type="number" name="mileage" id="mileage" placeholder="Mileage" data-validate="input" data-validate-message="Please enter your vehicle mileage" value="" min="1" max="100000">
+        </div>
+    </div>
+
+    <div class="row my-2">
+        <div class="col text-center">
+            <button class="btn btn-success" type="submit">Value My Car</button>
+        </div>
+    </div>
+
+</form>
+{% for message in get_flashed_messages() %}
+<h2 align="center">{{ message }}</h2>
+{% endfor %}
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+
+<nav class="navbar navbar-expand-light"><form method="post" action="/map">
+    <select name="make" id="make">
+        {% for a in make_select %}
+        <option>{{a.make}}</option>
+        {% endfor %}
+
+        <option></option>
+    </select>
+<select name="model" id="model">
+        <option>Model</option>
+
+    </select><button class="btn btn-primary" type="submit" style="margin-left:2px" id="submit">submit</button> </form></nav>
+<div class="chart mt-0"  id="bargraph">
+    <script>
+        var graphs = {{map | safe}};
+        Plotly.newPlot('bargraph',graphs,{});
+    </script>
+</div>
+<script>
+    $(document).ready(function(){
+
+        $("#model").hide();
+        $("#submit").hide();
+        $("#make").change(function(){
+            let dropdown = $('#model');
+            $("#model").empty();
+            make = $("#make").val();
+            const url = 'http://127.0.0.1:5000/callback/'+make;
+            dropdown.append('<option>Model</option>');
+            $("#model").show();
+
+
+            $.getJSON(url, function(data){
+
+                $.each(data, function (key, entry) {
+                dropdown.append($("<option value='"+ data[key].model +"'>" + data[key].model + " </option>"));
+
+
+                });
+
+
+            });
+
+        });
+
+
+
+
+    });
+    $("#model").change(function(){
+                        $.ajax("/data", {
+                            type: "GET",
+                            data:{make: $("#make").val(), model: $("#model").val()},
+                            success: function(data){
+                                result = JSON.parse(data);
+                                Plotly.newPlot("bargraph",result,{});
+                            }
+                        });
+
+                    });
+
+
+</script>
+{% endblock %}

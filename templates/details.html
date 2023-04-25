@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class=" " style="background-size: cover;background-repeat: no-repeat; width: 100%; height:100%; background-image: url(/static/images/background_details.jpg)">
+    <div class="row" style="width=100%">
+    <div class="col-lg"><img src={{result['image_link']}} onerror="this.src='/static/images/alt_car_image.jpg';" style="height:400px; width:auto; border-radius:10px; border: 2px solid black;outline-style: outset; outline-color: grey"></div>
+        <div class="col-lg" position="absolute" style="margin-right:5px ">
+            <h3 style="font-family:American Typewriter, serif; color:purple"> CAR DETAILS</h3></br>
+            <li style="color:white; list-style:none; font-family:American Typewriter, serif"><strong>Make:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{result.make}}</strong></li>
+            <li style="color:white; list-style:none; font-family:American Typewriter, serif"><strong>Model:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.model}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Engine:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.engine}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Fuel:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.fuel}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Transmission:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.transmission}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Town:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.town}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.country}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Seller:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.seller_name}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>BHP:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result['bhp']}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£{{result.price}}</strong></li>
+            <li style="color:white;list-style:none; font-family:American Typewriter, serif"><strong>Year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.year}}</strong></li>
+    </div>
+
+  </div>
+
+    </div>
+{% endblock %}

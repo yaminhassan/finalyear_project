@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block head %}
+<title>graphs</title>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="chart mt-0" id="bargraph">
+    <script>
+        var graphs = {{plot | safe}};
+        Plotly.newPlot('bargraph',graphs,{});
+    </script>
+</div>
+{% endblock %}
